@@ -110,6 +110,7 @@
     gnumake
     cmake
     pkg-config
+    clang-tools
 
     # cli utils
     git
