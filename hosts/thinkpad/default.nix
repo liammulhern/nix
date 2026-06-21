@@ -65,7 +65,10 @@
     defaultEditor = true;
   };
 
-  programs.tmux.enable = true;
+  programs.tmux = {
+    enable = true;
+    plugins = with pkgs.tmuxPlugins; [ tpm ];
+  };
 
   programs.zsh.enable = true;
 
