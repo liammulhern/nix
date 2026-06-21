@@ -15,7 +15,7 @@
   networking.hostName = "thinkpad";
   networking.networkmanager.enable = true;
 
-  time.timeZone = "Europe/Dublin";
+  time.timeZone = "Australia/Brisbane";
   i18n.defaultLocale = "en_IE.UTF-8";
 
   hardware.graphics.enable = true;
@@ -76,5 +76,5 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }
