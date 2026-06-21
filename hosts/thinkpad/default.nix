@@ -63,6 +63,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    plugins = [ pkgs.vimPlugins.lazy-nvim ];
+    extraPackages = with pkgs; [ git ];
   };
 
   programs.tmux = {
@@ -103,8 +105,18 @@
     playerctl
     networkmanagerapplet
 
+    # build tools
+    gcc
+    gnumake
+    cmake
+    pkg-config
+
     # cli utils
     git
+    zip
+    unzip
+    grep
+    ripgrep
     vim
     chezmoi
     claude-code
