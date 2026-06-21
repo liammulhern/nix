@@ -105,8 +105,18 @@
     playerctl
     networkmanagerapplet
 
+    # build tools
+    gcc
+    gnumake
+    cmake
+    pkg-config
+
     # cli utils
     git
+    zip
+    unzip
+    grep
+    ripgrep
     vim
     chezmoi
     claude-code
