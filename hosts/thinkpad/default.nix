@@ -96,6 +96,8 @@
     wget
     curl
     htop
+    zoxide
+    fzf
   ];
 
   services.libinput.enable = true;
