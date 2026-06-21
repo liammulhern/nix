@@ -15,6 +15,11 @@
   networking.hostName = "thinkpad";
   networking.networkmanager.enable = true;
 
+  services.resolved = {
+    enable = true;
+    fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
+  };
+
   time.timeZone = "Australia/Brisbane";
   i18n.defaultLocale = "en_IE.UTF-8";
 
