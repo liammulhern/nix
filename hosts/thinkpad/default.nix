@@ -1,0 +1,80 @@
+{ pkgs, ... }: {
+  imports = [ ./hardware-configuration.nix ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "thinkpad";
+  networking.networkmanager.enable = true;
+
+  time.timeZone = "Europe/Dublin";
+  i18n.defaultLocale = "en_IE.UTF-8";
+
+  hardware.graphics.enable = true;
+  hardware.enableRedistributableFirmware = true;
+  hardware.bluetooth.enable = true;
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.zsh.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    kitty
+    git
+    wget
+    curl
+    htop
+    wl-clipboard
+  ];
+
+  services.libinput.enable = true;
+  services.openssh.enable = true;
+  services.fstrim.enable = true;
+  services.blueman.enable = true;
+
+  users.users.liam = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "bluetooth" ];
+    shell = pkgs.zsh;
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
+  system.stateVersion = "25.05";
+}
