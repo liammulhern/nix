@@ -67,7 +67,12 @@
 
   programs.tmux = {
     enable = true;
-    plugins = with pkgs.tmuxPlugins; [ tpm ];
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      vim-tmux-navigator
+      tokyo-night-tmux
+      yank
+    ];
   };
 
   programs.zsh.enable = true;
