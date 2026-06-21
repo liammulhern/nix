@@ -98,6 +98,7 @@
     # cli utils
     git
     vim
+    chezmoi
     wget
     curl
     htop
