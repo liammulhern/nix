@@ -82,7 +82,6 @@
     wlogout
     swww
     waybar
-    swayNotificationCenter
     wofi
 
     # desktop utils
@@ -98,6 +97,7 @@
 
     # cli utils
     git
+    vim
     wget
     curl
     htop
