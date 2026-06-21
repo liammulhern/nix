@@ -63,6 +63,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    plugins = [ pkgs.vimPlugins.lazy-nvim ];
+    extraPackages = with pkgs; [ git ];
   };
 
   programs.tmux = {
