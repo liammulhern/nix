@@ -99,9 +99,12 @@
     git
     vim
     chezmoi
+    claude-code
+    yazi
     wget
     curl
     htop
+    fastfetch
     zoxide
     fzf
   ];
