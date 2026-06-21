@@ -15,7 +15,7 @@
   networking.hostName = "thinkpad";
   networking.networkmanager.enable = true;
 
-  time.timeZone = "Europe/Dublin";
+  time.timeZone = "Australia/Brisbane";
   i18n.defaultLocale = "en_IE.UTF-8";
 
   hardware.graphics.enable = true;
@@ -31,9 +31,16 @@
     wireplumber.enable = true;
   };
 
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+  };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    withUWSM = true;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -45,6 +52,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-cove
   ];
 
   programs.neovim = {
@@ -52,15 +60,42 @@
     defaultEditor = true;
   };
 
+  programs.tmux.enable = true;
+
   programs.zsh.enable = true;
 
+  programs.firefox.enable = true;
+
   environment.systemPackages = with pkgs; [
+    # terminal / editor
     kitty
+
+    # hyprland ecosystem
+    hyprlock
+    hypridle
+    hyprshot
+    wlogout
+    swww
+    waybar
+    swayNotificationCenter
+    wofi
+
+    # desktop utils
+    nautilus
+    udiskie
+    brightnessctl
+    pamixer
+    libnotify
+    wl-clipboard
+    hyprpolkitagent
+    playerctl
+    networkmanagerapplet
+
+    # cli utils
     git
     wget
     curl
     htop
-    wl-clipboard
   ];
 
   services.libinput.enable = true;
@@ -76,5 +111,5 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }
