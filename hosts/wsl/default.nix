@@ -1,5 +1,8 @@
 { pkgs, ... }: {
-  imports = [ ../../modules/cli.nix ];
+  imports = [
+    ../../modules/cli.nix
+    ../../modules/lsp.nix
+  ];
 
   wsl.enable = true;
   wsl.defaultUser = "liam";

@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../../modules/cli.nix
     ../../modules/desktop.nix
+    ../../modules/lsp.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
