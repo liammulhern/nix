@@ -1,4 +1,9 @@
 { pkgs, ... }: {
+  documentation.man.enable = true;
+  documentation.man.generateCaches = true;
+
+  programs.nix-ld.enable = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -23,6 +28,10 @@
     cmake
     pkg-config
 
+    # man pages
+    man-pages
+    man-pages-posix
+
     # cli utils
     git
     bash
@@ -35,10 +44,13 @@
     yazi
     wget
     curl
+    netcat-gnu
     htop
     fastfetch
     zoxide
     fzf
     nodejs_24
+    python3
+    uv
   ];
 }
