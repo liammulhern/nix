@@ -55,6 +55,8 @@
     udiskie
     brightnessctl
     pamixer
+    pavucontrol
+    btop
     libnotify
     wl-clipboard
     hyprpolkitagent
