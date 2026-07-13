@@ -52,5 +52,6 @@
     nodejs_24
     python3
     uv
+    docker
   ];
 }

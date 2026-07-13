@@ -2,6 +2,7 @@
   imports = [
     ../../modules/cli.nix
     ../../modules/lsp.nix
+    ../../modules/tritium.nix
   ];
 
   wsl.enable = true;
