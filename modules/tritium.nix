@@ -15,8 +15,6 @@
       pip
       pexpect
     ]))
-    SDL # libsdl1.2-dev
-    xterm
     nodejs_24 # includes npm
     docker
   ];

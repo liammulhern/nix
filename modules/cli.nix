@@ -2,6 +2,8 @@
   documentation.man.enable = true;
   documentation.man.generateCaches = true;
 
+  virtualisation.docker.enable = true;
+
   programs.nix-ld.enable = true;
 
   programs.neovim = {
@@ -53,5 +55,6 @@
     python3
     uv
     docker
+    minicom
   ];
 }

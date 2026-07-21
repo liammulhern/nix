@@ -8,7 +8,12 @@
   wsl.enable = true;
   wsl.defaultUser = "liam";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  virtualisation.docker.enable = true;
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
@@ -21,7 +26,10 @@
 
   users.users.liam = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
 

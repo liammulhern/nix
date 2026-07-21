@@ -12,6 +12,7 @@
     vscode-langservers-extracted  # html, css, json, eslint
     emmet-language-server
     tailwindcss-language-server
+    svelte-language-server
 
     # go
     gopls
