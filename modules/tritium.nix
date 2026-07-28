@@ -11,11 +11,15 @@
     chrpath
     socat
     cpio
-    (python3.withPackages (ps: with ps; [
-      pip
-      pexpect
-    ]))
+    (python3.withPackages (
+      ps: with ps; [
+        pip
+        pexpect
+      ]
+    ))
     nodejs_24 # includes npm
     docker
+    github-copilot-cli
+    jdk
   ];
 }
