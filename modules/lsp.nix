@@ -1,40 +1,44 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
-    # c / c++
-    clang-tools
-    cmake-language-server
+{ config, lib, pkgs, ... }: {
+  options.custom.lsp.enable = lib.mkEnableOption "language servers";
 
-    # python
-    pyright
+  config = lib.mkIf config.custom.lsp.enable {
+    environment.systemPackages = with pkgs; [
+      # c / c++
+      clang-tools
+      cmake-language-server
 
-    # javascript / typescript
-    typescript-language-server
-    vscode-langservers-extracted  # html, css, json, eslint
-    emmet-language-server
-    tailwindcss-language-server
-    svelte-language-server
+      # python
+      pyright
 
-    # go
-    gopls
-    delve
+      # javascript / typescript
+      typescript-language-server
+      vscode-langservers-extracted  # html, css, json, eslint
+      emmet-language-server
+      tailwindcss-language-server
+      svelte-language-server
 
-    # haskell
-    haskell-language-server
+      # go
+      gopls
+      delve
 
-    # latex
-    texlab
+      # haskell
+      haskell-language-server
 
-    # nix
-    nil
+      # latex
+      texlab
 
-    # lua
-    lua-language-server
-    stylua
+      # nix
+      nil
 
-    # bash
-    bash-language-server
+      # lua
+      lua-language-server
+      stylua
 
-    # treesitter
-    tree-sitter
-  ];
+      # bash
+      bash-language-server
+
+      # treesitter
+      tree-sitter
+    ];
+  };
 }

@@ -11,6 +11,21 @@
   };
 
   outputs = { nixpkgs, nixos-hardware, nixos-wsl, ... }: {
+    templates.esp32 = {
+      path = ./templates/esp32;
+      description = "ESP-IDF development environment for ESP32";
+    };
+
+    templates.stm32 = {
+      path = ./templates/stm32;
+      description = "STM32 development environment";
+    };
+
+    templates.zephyr = {
+      path = ./templates/zephyr;
+      description = "Zephyr RTOS development environment";
+    };
+
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

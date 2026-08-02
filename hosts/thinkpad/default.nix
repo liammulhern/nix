@@ -1,10 +1,16 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/cli.nix
-    ../../modules/desktop.nix
-    ../../modules/lsp.nix
+    ../../modules
   ];
+
+  custom.shell.enable = true;
+  custom.dev.enable = true;
+  custom.docker.enable = true;
+  custom.desktop.enable = true;
+  custom.lsp.enable = true;
+  custom.esp32.enable = true;
+  custom.stm32.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true;
@@ -39,7 +45,7 @@
 
   users.users.liam = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "bluetooth" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "bluetooth" "dialout" ];
     shell = pkgs.zsh;
   };
 

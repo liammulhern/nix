@@ -1,14 +1,16 @@
 { pkgs, ... }: {
   imports = [
-    ../../modules/cli.nix
-    ../../modules/lsp.nix
-    ../../modules/tritium.nix
+    ../../modules
   ];
+
+  custom.shell.enable = true;
+  custom.dev.enable = true;
+  custom.docker.enable = true;
+  custom.lsp.enable = true;
+  custom.tritium.enable = true;
 
   wsl.enable = true;
   wsl.defaultUser = "liam";
-
-  virtualisation.docker.enable = true;
 
   nix.settings.experimental-features = [
     "nix-command"
