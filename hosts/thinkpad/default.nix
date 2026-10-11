@@ -12,7 +12,11 @@
   custom.esp32.enable = true;
   custom.stm32.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
@@ -28,7 +32,10 @@
 
   services.resolved = {
     enable = true;
-    fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
+    fallbackDns = [
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
   };
 
   time.timeZone = "Australia/Brisbane";
@@ -45,7 +52,15 @@
 
   users.users.liam = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "bluetooth" "dialout" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "audio"
+      "video"
+      "bluetooth"
+      "docker"
+      "dialout"
+    ];
     shell = pkgs.zsh;
   };
 

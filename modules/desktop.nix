@@ -67,4 +67,73 @@
       networkmanagerapplet
     ];
   };
+<<<<<<< Updated upstream
+=======
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+    theme = "catppuccin-mocha-mauve";
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    withUWSM = true;
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-cove
+  ];
+
+  programs.firefox.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    catppuccin-sddm
+
+    # terminal
+    kitty
+
+    # hyprland ecosystem
+    hyprlock
+    hypridle
+    hyprshot
+    wlogout
+    awww
+    waybar
+    wofi
+
+    # desktop utils
+    nautilus
+    udiskie
+    brightnessctl
+    pamixer
+    pavucontrol
+    btop
+    libnotify
+    wl-clipboard
+    hyprpolkitagent
+    playerctl
+    networkmanagerapplet
+    rpi-imager
+  ];
+>>>>>>> Stashed changes
 }
